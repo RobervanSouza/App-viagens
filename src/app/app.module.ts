@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CardComponentComponent } from './shared/card-component/card-component.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ContainerComponent } from './shared/container/container.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     HeaderComponent,
     FooterComponent,
     BannerComponent,
-    CardComponentComponent
+    CardComponentComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
