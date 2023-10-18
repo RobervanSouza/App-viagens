@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CardComponentComponent } from './shared/card-component/card-component.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ContainerComponent } from './shared/container/container.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContainerComponent } from './shared/container/container.component';
     FooterComponent,
     BannerComponent,
     CardComponentComponent,
-    ContainerComponent
+    ContainerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

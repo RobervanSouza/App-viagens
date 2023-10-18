@@ -1,14 +1,15 @@
 
 header{
-
+   margin-bottom: 1px;
   .app-header{
     margin: 3;
+ 
   }
   mat-toolbar{
-    background-color: black;
+   background-color: black;
    color: white;
    padding: 0 214px;
-
+   height: 60px;
    .spacer{
     flex: 1 1 auto;
    }
