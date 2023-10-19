@@ -5,10 +5,9 @@
     background: #fef7ff;
     border-radius: 12px;
   }
-  &.secondary {
-    background: linear-gradient(0deg, #1d1b20, #1d1b20),
-      linear-gradient(0deg, #ffffff, #ffffff);
-      //background: #F5F5F5;
+  &.secundary {
+      background: #F5F5F5;
       border-radius: 16px;
+      color: black;
   }
 }

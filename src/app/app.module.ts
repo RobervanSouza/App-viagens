@@ -15,6 +15,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardBuscaComponent } from './shared/card-busca/card-busca.component';
 import { MatCardModule } from '@angular/material/card';
 import { CardDepoimentosComponent } from './shared/card-depoimentos/card-depoimentos.component';
+import { FormularioBuscaComponent } from './shared/formulario-busca/formulario-busca.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -28,7 +36,7 @@ import { CardDepoimentosComponent } from './shared/card-depoimentos/card-depoime
     HomeComponent,
     CardBuscaComponent,
     CardDepoimentosComponent,
-    
+    FormularioBuscaComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +44,16 @@ import { CardDepoimentosComponent } from './shared/card-depoimentos/card-depoime
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
