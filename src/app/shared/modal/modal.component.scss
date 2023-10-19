@@ -1,0 +1,68 @@
+.modal {
+  border: 2px solid #1d1b20;
+  width: 485px;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 32px;
+
+  h1 {
+    font-size: 32px;
+  }
+  .selecao-idade {
+    display: flex;
+    justify-content: flex-start;
+    gap: 22px;
+
+    ul {
+      list-style-type: none;
+
+      padding: 0;
+
+      li {
+        font-weight: 500;
+        font-size: 16px;
+
+        line-height: 20px;
+        color: #1d1b20;
+        text-align: start;
+        padding: 0;
+        span {
+          vertical-align: middle;
+          padding: 0 12px;
+        }
+      }
+    }
+  }
+  .selecao-categoria {
+    margin-top: 32px;
+    color: #1d1b20;
+  }
+  .modal-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    button {
+      margin: 0 8px;
+      width: 100%;
+    }
+  }
+  .decremento {
+    background-color: #f9f6f6;
+  }
+  .categoria {
+    padding: 22px;
+  }
+  .modal-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .cancelar{
+  background-color: #e8def8;
+  
+      
+    }
+  }
+}
