@@ -24,11 +24,19 @@
 
 
             
-            <app-auto-complete label="Origem" icone="flight_takeoff"></app-auto-complete>
+            <app-auto-complete 
+            label="Origem"
+             icone="flight_takeoff"
+             [control]="formBuscaService.obterControle('origem')"
+              ></app-auto-complete>
             <button mat-icon-button class="botao">
                 <mat-icon>sync_alt</mat-icon>
             </button>
-            <app-auto-complete label="Destino" icone="flight_land"></app-auto-complete>
+            <app-auto-complete 
+            label="Destino" 
+            icone="flight_land"
+            [control]="formBuscaService.obterControle('destino')"  
+            ></app-auto-complete>
 
 
 
