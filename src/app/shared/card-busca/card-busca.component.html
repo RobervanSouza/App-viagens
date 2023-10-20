@@ -1,99 +1,16 @@
 <div class="container" >
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Atacama.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Atacama
-                </li>
-                <li>
-                    R$ 1.822,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Cordilheira dos Andes.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Cordilheira dos Andes
-                </li>
-                <li>
-                    R$ 1.269,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Grand Canyon.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Grand Canyon
-                </li>
-                <li>
-                    R$ 1.578,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Patagonia.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Patagonia
-                </li>
-                <li>
-                    R$ 2.222,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Turquia.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Turquia
-                </li>
-                <li>
-                    R$ 2.292,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="card-busca">
-        <img mat-card-image src="../../../assets/Veneza.png" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <ul>
-                <li>
-                    Veneza
-                </li>
-                <li>
-                    R$ 2.222,00
-                </li>
-            </ul>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="primary">Ver detalhes</button>
-        </mat-card-actions>
-    </mat-card>
+<mat-card class="card-busca">
+    <img mat-card-image src="{{ promocao.imagem }}" alt="Imagem de Veneza">
+    <mat-card-content>
+        <ul>
+            <li>{{promocao.destino}}</li>
+            <li>R$ {{promocao.preco }}</li>
+        </ul>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary">VER DETALHES</button>
+    </mat-card-actions>
+</mat-card>
+
 
 </div>
