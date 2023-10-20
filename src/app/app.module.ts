@@ -28,6 +28,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PromocaoComponentComponent } from './pages/home/promocao-component/promocao-component.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AutoCompleteComponent } from './shared/formulario-busca/auto-complete/auto-complete.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { PromocaoComponentComponent } from './pages/home/promocao-component/prom
     ModalComponent,
     BotaoControleComponent,
     PromocaoComponentComponent,
+    AutoCompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,8 @@ import { PromocaoComponentComponent } from './pages/home/promocao-component/prom
     MatNativeDateModule,
     MatDialogModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
