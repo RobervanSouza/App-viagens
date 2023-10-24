@@ -32,6 +32,7 @@ import { PromocaoComponentComponent } from './pages/home/promocao-component/prom
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AutoCompleteComponent } from './shared/formulario-busca/auto-complete/auto-complete.component';
+import { SelecionaPassageirosComponent } from './shared/seleciona-passageiros/seleciona-passageiros.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AutoCompleteComponent } from './shared/formulario-busca/auto-complete/a
     BotaoControleComponent,
     PromocaoComponentComponent,
     AutoCompleteComponent,
+    SelecionaPassageirosComponent,
   ],
   imports: [
     BrowserModule,
