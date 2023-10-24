@@ -15,9 +15,19 @@ export class FormBuscaService {
       origem: new FormControl(null),
       destino: new FormControl(null),
       tipo: new FormControl('Econômica'),
-      adultos: new FormControl(1),
-      criancas: new FormControl(0),
+      adultos: new FormControl(2),
+      criancas: new FormControl(1),
       bebes: new FormControl(0),
+    });
+  }
+
+  trocarOrigemDestino(): void {
+    const origem = this.formBusca.get('origem')?.value;
+    const destino = this.formBusca.get('destino')?.value;
+
+    this.formBusca.patchValue({
+      origem: destino,
+      destino: origem,
     });
   }
 
@@ -31,7 +41,7 @@ export class FormBuscaService {
 
     const criancas = this.formBusca.get('criancas')?.value;
     if (criancas && criancas > 0) {
-      descricao += `${descricao ? ', ' : ''}${criancas} criança${
+      descricao += `${descricao ? ', ' : ''}${criancas} crianças${
         criancas > 1 ? 's' : ''
       }`;
     }
@@ -46,6 +56,7 @@ export class FormBuscaService {
     return descricao;
   }
 
+
   obterControle(nome: string): FormControl {
     const control = this.formBusca.get(nome);
     if (!control) {
@@ -53,13 +64,15 @@ export class FormBuscaService {
     }
     return control as FormControl;
   }
+
+
   alteraTipo(event: MatChipSelectionChange, tipo: string) {
     if (event.selected) {
       this.formBusca.patchValue({
         tipo,
       });
     }
-    console.log('pasagem', tipo);
+
   }
 
   openDialog() {
