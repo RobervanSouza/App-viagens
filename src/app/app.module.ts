@@ -36,7 +36,10 @@ import { SelecionaPassageirosComponent } from './shared/seleciona-passageiros/se
 import { DepoimentoComponent } from './pages/home/depoimento/depoimento.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
-
+import { FormCadastrarComponent } from './shared/form-cadastrar/form-cadastrar.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
     DepoimentoComponent,
     LoginComponent,
     CadastrarComponent,
+    FormCadastrarComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +81,9 @@ import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
