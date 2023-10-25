@@ -27,20 +27,19 @@
             </mat-chip>
         </div>
         <div class="flex-container">
-
-            <app-auto-complete 
-            label="Origem" 
-            icone="flight_takeoff"
-            [control]="formBuscaService.obterControle('origem')">
-            </app-auto-complete>
+            <div class="auto-complete">
+                <app-auto-complete label="Origem" icone="flight_takeoff" placeholder="Origem"
+                    [control]="formBuscaService.obterControle('origem')">
+                </app-auto-complete>
+            </div>
             <button mat-icon-button class="botao">
                 <mat-icon>sync_alt</mat-icon>
             </button>
-            <app-auto-complete 
-            label="Destino" 
-            icone="flight_land"
-            [control]="formBuscaService.obterControle('destino')">
-            </app-auto-complete>
+            <div class="auto-complete">
+                <app-auto-complete label="Destino" placeholder="Destino" icone="flight_land"
+                    [control]="formBuscaService.obterControle('destino')">
+                </app-auto-complete>
+            </div>
 
             <mat-form-field class="input-container" appearance="outline">
                 <mat-label>Data de ida</mat-label>

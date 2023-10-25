@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PromocaoComponentComponent } from './pages/home/promocao-component/promocao-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { AutoCompleteComponent } from './shared/formulario-busca/auto-complete/auto-complete.component';
+import { AutoCompleteComponent } from './shared/auto-complete/auto-complete.component';
 import { SelecionaPassageirosComponent } from './shared/seleciona-passageiros/seleciona-passageiros.component';
 import { DepoimentoComponent } from './pages/home/depoimento/depoimento.component';
 import { LoginComponent } from './pages/login/login.component';
