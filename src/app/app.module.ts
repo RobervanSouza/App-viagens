@@ -35,6 +35,7 @@ import { AutoCompleteComponent } from './shared/formulario-busca/auto-complete/a
 import { SelecionaPassageirosComponent } from './shared/seleciona-passageiros/seleciona-passageiros.component';
 import { DepoimentoComponent } from './pages/home/depoimento/depoimento.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { LoginComponent } from './pages/login/login.component';
     SelecionaPassageirosComponent,
     DepoimentoComponent,
     LoginComponent,
+    CadastrarComponent,
   ],
   imports: [
     BrowserModule,
