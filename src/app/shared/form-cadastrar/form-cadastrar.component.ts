@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
 import { UnidadeFederativa } from 'src/app/core/types/type';
+import { FormValidator } from '../validate/form-validator';
 
 @Component({
   selector: 'app-form-cadastrar',
@@ -34,8 +35,22 @@ export class FormCadastrarComponent implements OnInit {
       genero: ['outro'],
       telefone: [null, Validators.required],
       estado: this.estadoControl,
-      confirmarEmail: [null, [Validators.required, Validators.email]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
+      confirmarEmail: [
+        null,
+        [
+          Validators.required,
+          Validators.email,
+          FormValidator.validCampo('email'),
+        ],
+      ],
+      confirmarSenha: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          FormValidator.validCampo('senha'),
+        ],
+      ],
       aceitarTermos: [null, [Validators.requiredTrue]],
     });
     this.formService.setCadastro(this.cadastroForm)
