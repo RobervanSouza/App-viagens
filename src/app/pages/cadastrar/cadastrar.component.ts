@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class CadastrarComponent {
   perfilComponent = false;
+
+  cadastrar(){
+    console.log('cadastrar ok')
+  }
 }

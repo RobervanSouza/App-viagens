@@ -112,7 +112,7 @@
                     Você precisa aceitar os termos e condições para efetuar o cadastro
                 </mat-error>
             </mat-card-content>
-            <mat-card-actions class="full-width">
+            <mat-card-actions class="full-width" (click)="cadastrar()" >
                 <button mat-flat-button [disabled]="cadastroForm.invalid" color="primary">CADASTRAR
                 </button>
             </mat-card-actions>

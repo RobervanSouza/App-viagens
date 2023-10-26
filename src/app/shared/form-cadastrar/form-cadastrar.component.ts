@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UnidadeFederativa } from 'src/app/core/types/type';
 
@@ -15,6 +15,7 @@ export class FormCadastrarComponent implements OnInit {
   );
 
   @Input() perfilComponent!: boolean;
+  @Output() onSubmit : EventEmitter<any> = new EventEmitter
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -33,5 +34,9 @@ export class FormCadastrarComponent implements OnInit {
       confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
       aceitarTermos: [null, [Validators.requiredTrue]],
     });
+  }
+
+  cadastrar(){
+    this.onSubmit.emit();
   }
 }
