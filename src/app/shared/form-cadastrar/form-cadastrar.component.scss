@@ -35,7 +35,6 @@ app-container {
         display: flex;
         flex-direction: column;
         margin-bottom: 16px;
-
         height: 73px;
         margin-top: -12px;
       }
@@ -45,15 +44,6 @@ app-container {
         display: flex;
         flex-direction: row;
         height: 63px;
-
-        .botao-prefiro {
-          align-items: center;
-          justify-content: center;
-          display: flex;
-          flex-direction: column;
-          height: 63px;
-          width: 123px;
-        }
       }
     }
   }
