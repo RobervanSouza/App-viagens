@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 export class CadastrarComponent {
   perfilComponent = false;
 
+
+  constructor(private formularioService: FormularioCadastroService){}
   cadastrar(){
-    console.log('cadastrar ok')
+    const formular = this.formularioService.getCadastro
+    console.log('cadastrar ok', formular)
   }
 }

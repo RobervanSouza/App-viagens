@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
 import { UnidadeFederativa } from 'src/app/core/types/type';
 
 @Component({
@@ -17,7 +18,10 @@ export class FormCadastrarComponent implements OnInit {
   @Input() perfilComponent!: boolean;
   @Output() onSubmit : EventEmitter<any> = new EventEmitter
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formService: FormularioCadastroService
+    ) {}
 
   ngOnInit() {
     this.cadastroForm = this.formBuilder.group({
@@ -34,6 +38,7 @@ export class FormCadastrarComponent implements OnInit {
       confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
       aceitarTermos: [null, [Validators.requiredTrue]],
     });
+    this.formService.setCadastro(this.cadastroForm)
   }
 
   cadastrar(){
