@@ -16,7 +16,7 @@ export class FormCadastrarComponent implements OnInit {
   );
 
   @Input() perfilComponent!: boolean;
-  @Output() onSubmit : EventEmitter<any> = new EventEmitter
+  @Output() onSubmit : EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,

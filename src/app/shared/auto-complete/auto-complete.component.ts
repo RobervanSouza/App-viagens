@@ -4,6 +4,7 @@ import { UnidadeFederativa } from 'src/app/core/types/type';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 
+
 @Component({
   selector: 'app-auto-complete',
   templateUrl: './auto-complete.component.html',
@@ -31,11 +32,16 @@ export class AutoCompleteComponent implements OnInit {
     );
   }
 
-  filtrarUfs(value: string): UnidadeFederativa[] {
-    const valorFiltrado = value?.toLowerCase();
+  filtrarUfs(value: string | UnidadeFederativa): UnidadeFederativa[] {
+    const nomeUf = typeof value === 'string' ? value : value?.nome;
+    const valorFiltrado = nomeUf?.toLowerCase();
     const result = this.unidadesFederativas.filter((estado) =>
       estado.nome.toLowerCase().includes(valorFiltrado)
     );
     return result;
+  }
+
+  displayFn(estado: UnidadeFederativa): string {
+    return estado && estado.nome ? estado.nome : '';
   }
 }

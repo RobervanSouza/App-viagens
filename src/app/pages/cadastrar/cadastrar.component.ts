@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { CadastroUserService } from 'src/app/core/services/CadastroUser/cadastro-user.service';
 import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
+import { PessoaUsuaria } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-cadastrar',
@@ -9,10 +11,25 @@ import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formu
 export class CadastrarComponent {
   perfilComponent = false;
 
+  constructor(
+    private formularioService: FormularioCadastroService,
+    private cadastroUser: CadastroUserService
+  ) {}
 
-  constructor(private formularioService: FormularioCadastroService){}
-  cadastrar(){
-    const formular = this.formularioService.getCadastro
-    console.log('cadastrar ok', formular)
+  cadastrar() {
+    const formCadastrar = this.formularioService.getCadastro();
+
+    if (formCadastrar?.valid) {
+      const novoCadastrar = formCadastrar.getRawValue() as PessoaUsuaria;
+      console.log(novoCadastrar)
+      this.cadastroUser.cadastrar(novoCadastrar).subscribe({
+        next: (value) => {
+          console.log('cadastrar ok', value);
+        },
+        error:(err) => {
+            console.log('cadastrar error', err);
+        },
+      });
+    }
   }
 }

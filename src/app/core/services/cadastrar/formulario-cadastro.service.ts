@@ -6,13 +6,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormularioCadastroService {
 
-  forCadastrar: FormGroup | null = null;
+  formCadastrar: FormGroup | null = null;
 
   getCadastro (): FormGroup | null {
-    return this.forCadastrar
+    return this.formCadastrar
   }
 
   setCadastro ( form:FormGroup){
-     this.forCadastrar = form
+     this.formCadastrar = form
   }
 }
