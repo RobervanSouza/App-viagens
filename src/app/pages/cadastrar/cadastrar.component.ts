@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CadastroUserService } from 'src/app/core/services/CadastroUser/cadastro-user.service';
 import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
 import { PessoaUsuaria } from 'src/app/core/types/type';
@@ -13,7 +14,8 @@ export class CadastrarComponent {
 
   constructor(
     private formularioService: FormularioCadastroService,
-    private cadastroUser: CadastroUserService
+    private cadastroUser: CadastroUserService,
+    private rota: Router
   ) {}
 
   cadastrar() {
@@ -25,6 +27,7 @@ export class CadastrarComponent {
       this.cadastroUser.cadastrar(novoCadastrar).subscribe({
         next: (value) => {
           console.log('cadastrar ok', value);
+          this.rota.navigate(['/login'])
         },
         error:(err) => {
             console.log('cadastrar error', err);
