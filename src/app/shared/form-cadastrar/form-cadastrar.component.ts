@@ -16,13 +16,15 @@ export class FormCadastrarComponent implements OnInit {
     Validators.required
   );
 
-  @Input() perfilComponent!: boolean;
-  @Output() onSubmit : EventEmitter<any> = new EventEmitter<any>();
+  @Input() perfilComponent = false;
+  @Input() textoBotao: string = "CADASTRAR"
+  @Input() titulo: string = "Crie Sua Conta"
+  @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
     private formService: FormularioCadastroService
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.cadastroForm = this.formBuilder.group({
@@ -51,12 +53,24 @@ export class FormCadastrarComponent implements OnInit {
           FormValidator.validCampo('senha'),
         ],
       ],
-      aceitarTermos: [null, [Validators.requiredTrue]],
+      aceitarTermos: [false, [Validators.requiredTrue]],
     });
-    this.formService.setCadastro(this.cadastroForm)
+
+    if(this.perfilComponent) {
+      this.cadastroForm.get('aceitarTermos')?.setValidators(null)
+    } else{
+      this.cadastroForm
+        .get('aceitarTermos')
+        ?.setValidators([Validators.requiredTrue]);
+    }
+    this.cadastroForm.get('aceitarTermos')?.updateValueAndValidity();
+
+
+
+    this.formService.setCadastro(this.cadastroForm);
   }
 
-  cadastrar(){
+  cadastrar() {
     this.onSubmit.emit();
   }
 }
