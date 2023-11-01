@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class CadastroUserService {
   private apiUrl: string = environment.apiUrl;
   constructor(private http: HttpClient) {}
+  
 
   cadastrar(pessoaUsuaria: PessoaUsuaria): Observable<PessoaUsuaria> {
     return this.http.post<PessoaUsuaria>(
