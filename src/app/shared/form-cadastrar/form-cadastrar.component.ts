@@ -20,6 +20,7 @@ export class FormCadastrarComponent implements OnInit {
   @Input() textoBotao: string = "CADASTRAR"
   @Input() titulo: string = "Crie Sua Conta"
   @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() sair: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -72,5 +73,9 @@ export class FormCadastrarComponent implements OnInit {
 
   cadastrar() {
     this.onSubmit.emit();
+  }
+
+  deslogar(){
+    this.sair.emit();
   }
 }
