@@ -42,6 +42,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AuthInterceptorInterceptor } from './core/interceptors/auth-interceptor.interceptor';
+import { BuscaComponent } from './pages/busca/busca.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AuthInterceptorInterceptor } from './core/interceptors/auth-interceptor
     CadastrarComponent,
     FormCadastrarComponent,
     PerfilComponent,
+    BuscaComponent,
   ],
   imports: [
     BrowserModule,
