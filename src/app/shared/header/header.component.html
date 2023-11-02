@@ -3,10 +3,28 @@
 
         <img src="../../../assets/viagem-turismo.jpg" alt="logo" class="logo">
         <span class="spacer"></span>
-        <button mat-button>Vender passagens</button>
-        <button mat-button>Sobre</button>
-        <button mat-raised-button routerLink="/cadastrar" color="primary">Cadastrar</button>
-        <button mat-stroked-button routerLink="/login" class="login">Login</button>
+        <div class="botoes">
+            <button mat-button>Vender passagens</button>
+            <button mat-button>Sobre</button>
+            <ng-container *ngIf="user$ | async as pessoaUsuaria, else login" >
+                <a routerLink="/perfil">
+                    <img src="../../../assets/User Images.png" alt="img usuario">
+                </a>
+                <button mat-stroked-button (click)="logout()" >SAIR</button>
+            </ng-container>
+
+            <ng-template #login>
+                <button
+                mat-raised-button 
+                routerLink="/cadastrar" 
+                color="primary">Cadastrar</button>
+                <button 
+                mat-stroked-button 
+                routerLink="/login" 
+                class="login"
+                >Login</button>
+            </ng-template>
+        </div>
     
     </mat-toolbar>
 </header>

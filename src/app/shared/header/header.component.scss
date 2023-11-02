@@ -3,10 +3,13 @@ header{
    margin-bottom: 1px;
   .app-header{
     margin: 3;
- 
-  }
-  mat-toolbar{
-   background-color: black;
+  
+   }
+   mat-toolbar{
+       background-color: black;
+      display: flex;
+      align-items: center;
+      
    color: white;
    padding: 0 214px;
    height: 60px;
@@ -29,5 +32,10 @@ header{
    }
 }
 
+.botoes{
 
+align-items: center;
+justify-content: center;
+display: flex;
+}
 }
