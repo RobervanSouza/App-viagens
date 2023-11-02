@@ -27,7 +27,7 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PromocaoComponentComponent } from './pages/home/promocao-component/promocao-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -41,6 +41,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AuthInterceptorInterceptor } from './core/interceptors/auth-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,11 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     MatDividerModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
