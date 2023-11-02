@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { authGuarde } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    component: PerfilComponent
+    component: PerfilComponent, canActivate:[authGuarde]
   },
 ];
 
