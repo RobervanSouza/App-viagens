@@ -43,6 +43,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AuthInterceptorInterceptor } from './core/interceptors/auth-interceptor.interceptor';
 import { BuscaComponent } from './pages/busca/busca.component';
+import { PassagensComponent } from './shared/passagens/passagens.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { BuscaComponent } from './pages/busca/busca.component';
     FormCadastrarComponent,
     PerfilComponent,
     BuscaComponent,
+    PassagensComponent,
   ],
   imports: [
     BrowserModule,

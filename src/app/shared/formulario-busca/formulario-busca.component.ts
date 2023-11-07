@@ -13,8 +13,13 @@ export class FormularioBuscaComponent {
     public formBuscaService: FormBuscaService) {}
 
   buscar (){
+    if(this.formBuscaService.formularioValido){
+
     const formBuscaValue = this.formBuscaService.formBusca.value;
     this.realizarBusca.emit(formBuscaValue)
+    }else{
+      alert('O Preecha o Formulario!!!')
+    }
   }
 
 }
