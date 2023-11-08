@@ -1,9 +1,11 @@
 <div class="busca-page">
     <app-banner src="../../../assets/Banner pesquisa.png" alt="" />
     <app-container>
-        <app-formulario-busca></app-formulario-busca>
+        <app-formulario-busca (realizarBusca)="busca($event)"></app-formulario-busca>
         <section class="conteudo">
-            <app-passagens></app-passagens>
+            <div class="passagens">
+                <app-p *ngFor="let passagem of passagens" [passagem]="passagem"></app-p>
+            </div>
         </section>
     </app-container>
 </div>
