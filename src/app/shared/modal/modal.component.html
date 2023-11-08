@@ -2,11 +2,9 @@
     <h1 mat-dialog-title>Viajante</h1>
 
     <div class="selecao-idade">
-        <app-seleciona-passageiros 
-        [formControl]="formBuscaService.obterControle('adultos')" 
-        titulo="Adultos"
-        subTitulo="(Acima de 12 anos)"/>
-        
+        <app-seleciona-passageiros [formControl]="formBuscaService.obterControle('adultos')" titulo="Adultos"
+            subTitulo="(Acima de 12 anos)" />
+
         <app-seleciona-passageiros [formControl]="formBuscaService.obterControle('criancas')" titulo="Crianças"
             subTitulo="(Entre 2 e 11 anos)">
         </app-seleciona-passageiros>
@@ -34,11 +32,7 @@
 
 
     </div>
-    <div class="modal-actions">
-        <button mat-flat-button class="cancelar">Cancelar</button>
-
-    </div>
-    <div mat-dialog-actions>
-        <button mat-button mat-dialog-close>Close</button>
-    </div>
+<div mat-dialog-actions class="modal-actions">
+    <button color="primary" mat-flat-button mat-dialog-close>BUSCAR</button>
+</div>
 </section>

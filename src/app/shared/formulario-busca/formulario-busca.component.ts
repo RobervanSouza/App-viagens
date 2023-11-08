@@ -15,10 +15,10 @@ export class FormularioBuscaComponent {
   buscar (){
     if(this.formBuscaService.formularioValido){
 
-    const formBuscaValue = this.formBuscaService.formBusca.value;
+    const formBuscaValue = this.formBuscaService.obterDadosBusca();
     this.realizarBusca.emit(formBuscaValue)
     }else{
-      alert('O Preecha o Formulario!!!')
+      alert('Preencha o Formulario!!!')
     }
   }
 

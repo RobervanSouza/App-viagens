@@ -5,7 +5,7 @@ import { CadastroUserService } from 'src/app/core/services/CadastroUser/cadastro
 import { FormularioCadastroService } from 'src/app/core/services/cadastrar/formulario-cadastro.service';
 import { TokenService } from 'src/app/core/services/token/token.service';
 import { PessoaUsuaria } from 'src/app/core/types/type';
-import { UsuarioService } from './../../core/services/usuario/usuario.service';
+import { UsuarioService } from '../../core/services/usuario/usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,47 +17,47 @@ export class PerfilComponent implements OnInit {
   textoBotao = 'ATUALIZAR';
   perfilComponent = true;
 
-  token= '';
+  token = '';
   nome = '';
   cadastro!: PessoaUsuaria;
   formGrup!: FormGroup<any> | null;
 
   constructor(
-   private tokenService: TokenService,
-   private cadastroService: CadastroUserService,
-   private formService: FormularioCadastroService,
-   private rotas: Router,
-   private userService: UsuarioService,
+    private tokenService: TokenService,
+    private cadastroService: CadastroUserService,
+    private formService: FormularioCadastroService,
+    private rotas: Router,
+    private userService: UsuarioService
   ) {}
   ngOnInit(): void {
     this.token = this.tokenService.retornarToken();
-    this.cadastroService.buscarCadastro().subscribe(cadastro =>{
+    this.cadastroService.buscarCadastro().subscribe((cadastro) => {
       this.cadastro = cadastro;
-      this.nome = this.cadastro.nome
+      this.nome = this.cadastro.nome;
       this.carregarFormulario();
-    })
+    });
   }
 
-  carregarFormulario(){
-   this.formGrup = this.formService.getCadastro();
+  carregarFormulario() {
+    this.formGrup = this.formService.getCadastro();
     this.formGrup?.patchValue({
-    nome: this.cadastro.nome,
-    nascimento: this.cadastro.nascimento,
-    cpf: this.cadastro.cpf,
-    telefone: this.cadastro.telefone,
-    email: this.cadastro.email,
-    senha: this.cadastro.senha,
-    cidade: this.cadastro.cidade,
-    estado: this.cadastro.estado,
-    genero: this.cadastro.genero,
-    })
+      nome: this.cadastro.nome,
+      nascimento: this.cadastro.nascimento,
+      cpf: this.cadastro.cpf,
+      telefone: this.cadastro.telefone,
+      email: this.cadastro.email,
+      senha: this.cadastro.senha,
+      cidade: this.cadastro.cidade,
+      estado: this.cadastro.estado,
+      genero: this.cadastro.genero,
+    });
   }
 
-  deslogar () {
-   this.userService.logout();
-   this.rotas.navigate(['/login']);
+  deslogar() {
+    this.userService.logout();
+    this.rotas.navigate(['/login']);
   }
-  atualizar(){
+  atualizar() {
     const dadosAtualizado = {
       nome: this.formGrup?.value.nome,
       nascimento: this.formGrup?.value.nascimento,
@@ -68,16 +68,16 @@ export class PerfilComponent implements OnInit {
       cidade: this.formGrup?.value.cidade,
       estado: this.formGrup?.value.estado,
       genero: this.formGrup?.value.genero,
-    }
+    };
 
     this.cadastroService.editarCadastro(dadosAtualizado).subscribe({
-      next:()=>{
-        alert("Cadastro atualizado com sucesso")
-        this.rotas.navigate(["/"])
+      next: () => {
+        alert('Cadastro atualizado com sucesso');
+        this.rotas.navigate(['/']);
       },
       error(err) {
-          console.log(err, "Erro ao atualizar cadastro!!!")
+        console.log(err, 'Erro ao atualizar cadastro!!!');
       },
-    })
+    });
   }
 }

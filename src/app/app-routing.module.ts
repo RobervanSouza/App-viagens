@@ -10,28 +10,29 @@ import { BuscaComponent } from './pages/busca/busca.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'cadastrar',
-    component: CadastrarComponent
+    component: CadastrarComponent,
   },
   {
     path: 'busca',
-    component: BuscaComponent
+    component: BuscaComponent,
   },
   {
     path: 'perfil',
-    component: PerfilComponent, canActivate:[authGuarde]
+    component: PerfilComponent,
+    canActivate: [authGuarde],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

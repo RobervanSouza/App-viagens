@@ -92,11 +92,13 @@ import { PassagensComponent } from './shared/passagens/passagens.component';
     MatDividerModule,
     MatCheckboxModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorInterceptor,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

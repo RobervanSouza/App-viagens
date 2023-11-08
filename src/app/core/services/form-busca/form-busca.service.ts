@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipSelectionChange } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { DadosBusca, UnidadeFederativa } from '../../types/type';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,10 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 export class FormBuscaService {
   formBusca: FormGroup;
   constructor(private dialog: MatDialog) {
+
     const somenteIda = new FormControl(false, [Validators.required])
     const dataVolta= new FormControl(null, [Validators.required])
+
     this.formBusca = new FormGroup({
       somenteIda,
       origem: new FormControl(null, [Validators.required]),
@@ -19,10 +22,11 @@ export class FormBuscaService {
       tipo: new FormControl('Executiva'),
       adultos: new FormControl(2),
       criancas: new FormControl(1),
-      bebes: new FormControl(0),
+      bebes: new FormControl(2),
       dataIda: new FormControl(null, [Validators.required]),
-      dataVolta,
+      dataVolta
     })
+
     somenteIda.valueChanges.subscribe( somenteIda => {
       if(somenteIda){
         dataVolta.disable();
@@ -71,15 +75,40 @@ export class FormBuscaService {
   }
 
 
-  obterControle(nome: string): FormControl {
+  obterControle<T>(nome: string): FormControl {
     const control = this.formBusca.get(nome);
     if (!control) {
       throw new Error(`FormControl com nome "${nome}" não existe.`);
     }
     
-    return control as FormControl;
+    return control as FormControl<T>;
+
   }
 
+  
+  obterDadosBusca(): DadosBusca {
+    const dataControle = this.obterControle<Date>('dataIda');
+
+   const dadosBusca: DadosBusca = {
+     pagina: 1,
+     porPagina: 50,
+     dataIda: dataControle.value.toISOString(),
+     passageirosAdultos: this.obterControle<number>('adultos').value,
+     passageirosCriancas: this.obterControle<number>('criancas').value,
+     passageirosBebes: this.obterControle<number>('bebes').value,
+     somenteIda: this.obterControle<boolean>('somenteIda').value,
+     origemId: this.obterControle<UnidadeFederativa>('origem').value.id,
+     destinoId: this.obterControle<UnidadeFederativa>('destino').value.id,
+     tipo: this.obterControle<string>('tipo').value,
+   };
+   const dataVoltar = this.obterControle<Date>('dataVolta').value
+   if (dataVoltar.value) {
+    dadosBusca.dataVolta = dataVoltar.value.toISOString();
+   }
+   return dadosBusca
+
+  }
+  
 
   alteraTipo(event: MatChipSelectionChange, tipo: string) {
     if (event.selected) {

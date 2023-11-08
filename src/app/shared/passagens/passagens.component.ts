@@ -8,4 +8,10 @@ import { Passagem } from 'src/app/core/types/type';
 })
 export class PassagensComponent {
   @Input() passagem!: Passagem;
+  get textoIdaVolta() {
+    if (!this.passagem.dataVolta) {
+      return 'Somente ida';
+    }
+    return 'Ida e volta';
+  }
 }
